@@ -3,6 +3,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 import sys, os, shutil
 
+print(tf.__version__)
+
 from layers import LayerTrain
 
 def make_dir(directory):
