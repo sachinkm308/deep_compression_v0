@@ -77,7 +77,7 @@ if __name__ == "__main__":
 			
 			# prune from time to time, finetune in the meantime
 			if i%500==0:
-				print 'iter:', i, 'prune weights'
+				print('iter:', i, 'prune weights')
 				for L in LAYERS:
 					L.prune_weights(sess, threshold=0.1)
 			
@@ -101,7 +101,7 @@ if __name__ == "__main__":
 			
 			# quantize only once and then finetune
 			if i==1000:
-				print 'iter:', i, "quantize weights"
+				print('iter:', i, "quantize weights")
 				for L in LAYERS:
 					L.quantize_weights(sess)
 
@@ -137,7 +137,7 @@ if __name__ == "__main__":
 
 			iters.append(i)
 			iters_acc.append(acc)				
-			print 'iter:', i, 'test accuracy:', acc
+			print('iter:', i, 'test accuracy:', acc)
 
 			for L in LAYERS:
 				L.save_weights_histogram(sess, histograms_dir, i)
@@ -152,4 +152,4 @@ if __name__ == "__main__":
 	plt.plot(iters, iters_acc, color='0.4')
 	plt.savefig('./train_acc', dpi=1200)
 
-	print 'Training finished'
+	print('Training finished')
